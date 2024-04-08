@@ -3,7 +3,6 @@ export WORKON_HOME=$HOME/Envs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 source $HOME/.local/bin/virtualenvwrapper.sh
 export GIT_EDITOR=vim
-
 if type rg &>/dev/null; then
 	export FZF_DDEFAULT_COMMAND='rg --files'
 	export FZF_DEFAULT_OPTS='-m --height 50% --border'
@@ -13,6 +12,7 @@ fi
 alias vim=nvim
 alias python=python3
 
+alias sync_dotfiles='~/.dotfiles/sync.sh'
 alias rs='python manage.py runserver'
 alias shell='python manage.py shell'
 
