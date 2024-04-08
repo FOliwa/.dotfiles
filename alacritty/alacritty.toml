@@ -1,0 +1,14 @@
+import = ["~/.config/alacritty/themes/themes/tokyo-night-storm.toml"]
+
+[font]
+size=15
+
+[font.normal]
+family="JetBrainsMonoNerdFont"
+
+[window]
+decorations = "none"
+
+[window.padding]
+x = 7
+y = 0
