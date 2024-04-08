@@ -13,6 +13,4 @@ Those configurations are to terminal based tools I can deploy and use at any ser
 ```
 
 ## TODO:
-- add .bashrc file
-- add .bash_aliases file
-- add .profle file
+- Test it out - check if all script works as expected on fresh Linux system
