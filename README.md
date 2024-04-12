@@ -14,3 +14,8 @@ Those configurations are to terminal based tools I can deploy and use at any ser
 
 ## TODO:
 - Test it out - check if all script works as expected on fresh Linux system
+
+## NOTES:
+to make nvim aware of django models and types install django-stubs package
+`pip install django-stubs`
+`pip install django-types`

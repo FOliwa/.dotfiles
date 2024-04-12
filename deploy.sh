@@ -5,13 +5,19 @@
 #### DEPLOY TMUX CONF ##########################################
 cp ~/.dotfiles/.tmux.conf ~
 
-#### DEPLOY ALACRITTY CONF ##########################################
+#### DEPLOY ALACRITTY CONF #####################################
 cp ~/.dotfiles/alacritty.toml ~/.config/alacritty/alacritty.toml
-# Check iff themes are installed
+# Check if themes are installed
 THEME_PATH="$HOME/.config/alacritty/themes/themes/tokyo-night-storm.toml"
 if [ ! -e "$THEME_PATH" ]; then
 	echo "Install alacritty themes: https://github.com/alacritty/alacritty-theme"
 fi
 
 #### DEPLOY NVIM CONF ##########################################
-cp ~/.dotfiles/nvim/* ~/.config/nvim/
+cp -r ~/.dotfiles/nvim/* ~/.config/nvim/
+echo "====================== NOTE ========================"
+echo "1. Install check missing tools using LeazyHealth command in NVim and install all necesary tools\n"
+echo "2. For sure you need node and rust installed on your system as some pluggins requirements\n"
+echo "3. To make lsp for python or other selected servers work you have install them\n"
+echo "4. Remember to check if NerdFonts are avaliable on your system or remove entry in alacritty.toml\n"
+echo "================================================================"
