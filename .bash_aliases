@@ -8,7 +8,7 @@ if type rg &>/dev/null; then
 	export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
 
-# Mappings 
+# Mappings
 alias vim=nvim
 alias python=python3
 
@@ -25,6 +25,7 @@ alias gstat="git status"
 # Projects:
 alias characters_forge="cd ~/Workspace/Character_Forge && workon characters_forge && export DJANGO_SETTINGS_MODULE=characters_forge.settings"
 alias hu_image_getter="cd ~/Workspace/HU_Image_Getter/ && workon hu-pdf-generator && vim"
+alias py_for_sec="cd /home/oliwa/Workspace/Py_For_Security && workon py_for_sec"
 
 # TMUX
 # INFO: This is a template for your reuse:
@@ -63,4 +64,12 @@ function sb_info ()
 }
 
 sb_info
+
+
+
+
+
+
+
+
 

@@ -6,9 +6,10 @@
 echo Synchronising files started...
 BASE_PATH="$HOME/.dotfiles/"
 
-cp -u -r ~/.config/nvim/ $BASE_PATH
-cp -u ~/.config/alacritty/alacritty.toml $BASE_PATH
-cp -u ~/.tmux.conf $BASE_PATH
+#NOTE: Decide what you want to copy 
+#cp -u -r ~/.config/nvim/ $BASE_PATH
+#cp -u ~/.config/alacritty/alacritty.toml $BASE_PATH
+#cp -u ~/.tmux.conf $BASE_PATH
 #cp -u ~/.bashrc $BASE_PATH
 #cp -u ~/.bash_aliases $BASE_PATH
 #cp -u ~/.profile $BASE_PATH
