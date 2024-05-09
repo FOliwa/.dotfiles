@@ -8,23 +8,27 @@ if type rg &>/dev/null; then
 	export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
 
-# Aliases:
+# Mappings 
 alias vim=nvim
 alias python=python3
 
-alias sync_dotfiles='~/.dotfiles/sync.sh'
+# Shorcuts
 alias rs='python manage.py runserver'
 alias shell='python manage.py shell'
+alias source_bash="source ~/.bash_aliases"
 
+# Git related
 alias lg="git log --graph --oneline"
 alias lgm="git log --graph --oneline  master.."
 alias gstat="git status"
-alias characters_forge="cd ~/Workspace/CharacterForge && workon characters_forge && export DJANGO_SETTINGS_MODULE=characters_forge.settings"
+
+# Projects:
+alias characters_forge="cd ~/Workspace/Character_Forge && workon characters_forge && export DJANGO_SETTINGS_MODULE=characters_forge.settings"
+alias hu_image_getter="cd ~/Workspace/HU_Image_Getter/ && workon hu-pdf-generator && vim"
 
 # TMUX
 # INFO: This is a template for your reuse:
 #alias mluti_tmux='tmux send $_RUN_JSON_SERVER C-m\; splitw -p 50 -v \; send $_RUN_CONFIGS C-m\; splitw -fh \;  send $_RUN_FRONT C-m\; splitw -fv \; send $_RUN_NGINX C-m\; send strt_backend C-m\;'
-
 
 # SB RELATED ======================================
 # INFO:: Remember to define IP of sb and check paths with --dry-run
