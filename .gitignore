@@ -1,1 +1,3 @@
-nvim/pack/
+# This file contains machine specific settings
+.bash_local
+
