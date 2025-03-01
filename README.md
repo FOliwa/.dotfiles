@@ -1,8 +1,8 @@
-# Symlink Approach
+# Symlink Approach for .dofiles
 
-The Symlink Approach is about keeping your dotfiles in a dedicated directory (e.g., ~/dotfiles/) and creating symbolic links (symlinks) from there to your home directory (~). This way, your actual config files stay version-controlled while still being in the expected locations.
+The Symlink Approach is about keeping your dotfiles in a dedicated directory (e.g., ~/dotfiles/) and creating symbolic links (symlinks) from there to your home directory. This way, your actual config files stay version-controlled while still being in the expected locations.
 
-# HOW?
+# Way of working
 
 I will use `stow` tool. This is simple tool to mange symlinks for dotfiles.
 
@@ -16,9 +16,10 @@ sudo apt install stow
 
 2. Create a dofiles directory and structure it
 
-> [!NOTE] Key Takeaway
+> Maintain structure!
 > When using stow, mirror the expected directory structure inside ~/dotfiles/,
 > and it will place symlinks correctly.
+> Read more in `Nested Directories` heading below.
 
 ```bash
 # For example:
@@ -99,9 +100,9 @@ except of that the great things are:
 - Your files are organized in categories
 - This is reversible - you can remove symlinks without deleting files
 
-# NOTES
+# Notes
 
-## BASH
+## About Bash
 
 As I have some machine specific configs and aliases - I dont want to share it in all machines as there thos aliases
 could not work or be broke. To handle machine specific configs for bash I decided to add file `.bash_local`. Put there
