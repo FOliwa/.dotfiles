@@ -1,7 +1,4 @@
 # Export additional varibles for virtualenv:
-export WORKON_HOME=$HOME/Envs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source $HOME/.local/bin/virtualenvwrapper.sh
 export GIT_EDITOR=vim
 if type rg &>/dev/null; then
   export FZF_DDEFAULT_COMMAND='rg --files'
@@ -11,11 +8,6 @@ fi
 # Mappings
 alias vim=nvim
 alias python=python3
-export GEM_HOME="$HOME/Gems"
-
-# Shorcuts
-alias rs='python manage.py runserver'
-alias shell='python manage.py shell'
 
 # Git related
 alias lg="git log --graph --oneline"
