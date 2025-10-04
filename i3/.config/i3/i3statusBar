@@ -1,0 +1,35 @@
+general {
+  interval = 5
+}
+
+order += "wireless _first_"
+order += "battery all"
+order += "cpu_usage"
+order += "memory"
+
+wireless _first_ {
+    format_up = "> %essid %quality"
+    format_down = "< brak"
+}
+
+battery all{
+    format = "%percentage %remaining"
+    last_full_capacity = true
+}
+
+volume master {
+  format = "%volume"
+  device = "default"
+  mixer = "Master"
+  mixer_idx = 0
+}
+
+cpu_usage {
+    format = "CPU: %usage"
+}
+
+memory {
+    format = "RAM: %usage"
+    threshold_degraded = "10%"
+    format_degraded = " MEM low: %free"
+  }

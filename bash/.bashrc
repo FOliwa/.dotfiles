@@ -9,8 +9,8 @@ export OSH='/home/foliwa/.oh-my-bash'
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
-#OSH_THEME="powerline-icon"
-OSH_THEME="agnoster"
+OSH_THEME="powerline-multiline"
+#OSH_THEME="agnoster"
 #OSH_THEME="edsonarios"
 #OSH_THEME="random"
 
@@ -134,7 +134,13 @@ source "$OSH"/oh-my-bash.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-export PATH="$PATH:/opt/:$HOME/.cargo/bin/"
+export PATH="/opt/:$PATH"
+export PATH="$PATH:$HOME/.cargo/bin/"
+export PATH="$PATH:$HOME/.pyenv/bin/"
+export PATH="$PATH:/usr/local/go/bin"
+
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -151,3 +157,7 @@ export PATH="$PATH:/opt/:$HOME/.cargo/bin/"
 
 # Load additional local aliases (ignored from Git)
 [[ -f ~/.bash_local ]] && source ~/.bash_local
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
