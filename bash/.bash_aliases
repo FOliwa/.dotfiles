@@ -22,7 +22,7 @@ function info() {
   echo "============================================
     DW >> P.Timer >> KISS >> SB
 
-Stick to the plan and GO!!!
+Stick to the plan!!!
 ==========================================="
 }
 
