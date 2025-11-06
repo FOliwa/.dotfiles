@@ -3,6 +3,8 @@
 -- Add any additional options here
 vim.cmd("let g:netrw_liststyle = 3")
 
+vim.g.lazyvim_blink_main = true
+
 local opt = vim.opt
 
 opt.relativenumber = true

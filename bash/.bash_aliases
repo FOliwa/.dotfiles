@@ -8,6 +8,7 @@ fi
 # Mappings
 alias vim=nvim
 alias python=python3
+alias ld="lazydocker"
 
 # Git related
 alias lg="git log --graph --oneline"

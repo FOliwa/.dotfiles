@@ -18,7 +18,6 @@ require("lazy").setup({
 	spec = {
 		{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
 		{ import = "lazyvim.plugins.extras.lang.docker" },
-		{ import = "lazyvim.plugins.extras.lang.ansible" },
 		{ import = "plugins" },
 	},
 	defaults = {

@@ -134,14 +134,27 @@ source "$OSH"/oh-my-bash.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-export PATH="/opt/:$PATH"
-export PATH="$PATH:$HOME/.cargo/bin/"
-export PATH="$PATH:$HOME/.pyenv/bin/"
-export PATH="$PATH:/usr/local/go/bin"
-export PATH="$PATH:$HOME/go/bin"
+# PATH mods ===========================================================================
+export PYENV_ROOT="$HOME/.pyenv"
+export CARGO_ROOT="$HOME/.cargo/bin/"
+export GO_USER="$HOME/go/bin"
+export GO_ROOT="/usr/local/go/bin"
 
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
+export PATH="/opt/:$PATH"
+export PATH="$CARGO_ROOT:$PATH"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$GO_ROOT:$PATH"
+export PATH="$GO_USER:$PATH"
+# ======================================================================================
+
+# Pyenv init - virtualenv are handled by virtualenv and virtualenvwrapper intentionally
+eval "$(pyenv init -)"
+
+# Virtualenv wrapper setup - more robust
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=$(which python)
+export VIRTUALENVWRAPPER_VIRTUALENV=$(which virtualenv)
+source $(which virtualenvwrapper.sh)
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
