@@ -9,6 +9,7 @@ fi
 alias vim=nvim
 alias python=python3
 alias ld="lazydocker"
+alias k="kubectl"
 
 # Git related
 alias lg="git log --graph --oneline"
