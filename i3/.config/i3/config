@@ -16,6 +16,30 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:JetBrainsMono Nerd Font 12
 
+# ---- Colors ----
+set $bg      #1e1e1e
+set $bg_alt  #2b2b2b
+set $fg      #d8dee9
+set $accent  #5e81ac
+set $urgent  #bf616a
+
+# ---- Window borders ----
+default_border pixel 2
+default_floating_border normal
+
+# nowe okna od razu z pikselową ramką
+new_window pixel 0
+new_float normal
+
+# mniej syfu na krawędziach ekranu
+hide_edge_borders smart
+
+client.focused          $accent $accent $bg      $accent
+client.unfocused        $bg_alt $bg_alt $fg      $bg_alt
+client.focused_inactive $bg_alt $bg_alt #999999  $bg_alt
+client.urgent           $urgent $urgent $bg      $urgent
+
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -41,6 +65,9 @@ exec --no-startup-id nm-applet
 
 # Add Bluethouth devices applet
 exec --no-startup-id blueman-applet &
+
+# My custom netstat - align name of the interface
+exec --no-startup-id bash -c "pkill -f net.sh; ~/.config/i3/net.sh >/tmp/net.log 2>&1 &"
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -196,8 +223,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  status_command i3status
-  position top
-  font pango:JetBrainsMono Nerd Font 12
-  separator_symbol "|"
+    position top
+    font pango:JetBrainsMono Nerd Font 12
+    status_command i3status -c ~/.config/i3/statusBar
 }

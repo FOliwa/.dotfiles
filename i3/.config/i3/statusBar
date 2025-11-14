@@ -1,0 +1,48 @@
+general {
+    interval = 3
+
+    colors = true
+    color_good     = "#5e81ac"  # akcent (ok)
+    color_degraded = "#ebcb8b"  # ostrzeżenie
+    color_bad      = "#bf616a"  # źle
+}
+
+# kolejność na barze
+order += "read_file netload"
+order += "cpu_usage"
+order += "memory"
+order += "wireless _first_"
+#order += "battery all"
+#order += "volume master"
+
+wireless _first_ {
+    format_up = "  %essid (%quality) "
+    format_down = "  brak Wi-Fi "
+}
+
+cpu_usage {
+    format = "  %usage "
+}
+
+memory {
+    format = " 🧠 %used "
+    threshold_degraded = "10%"
+    format_degraded = " 🧠 %usage "
+}
+
+battery all {
+    format = " 🔋 %percentage "
+    last_full_capacity = true
+}
+
+volume master {
+    format = " %volume"
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
+}
+
+read_file netload {
+    path = "/tmp/netload"
+}
+

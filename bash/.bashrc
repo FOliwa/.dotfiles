@@ -181,8 +181,6 @@ complete -o default -F __start_kubectl k
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-source
-
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/home/foliwa/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
