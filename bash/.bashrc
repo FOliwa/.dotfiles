@@ -5,7 +5,7 @@ case $- in
 esac
 
 # Path to your oh-my-bash installation.
-export OSH='/home/foliwa/.oh-my-bash'
+export OSH="$HOME/.oh-my-bash"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
@@ -135,16 +135,17 @@ source "$OSH"/oh-my-bash.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # PATH mods ===========================================================================
+export NVIM="/opt/nvim/nvim"
 export PYENV_ROOT="$HOME/.pyenv"
 export CARGO_ROOT="$HOME/.cargo/bin/"
 export GO_USER="$HOME/go/bin"
 export GO_ROOT="/usr/local/go/bin"
 
-export PATH="/opt/:$PATH"
 export PATH="$CARGO_ROOT:$PATH"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$GO_ROOT:$PATH"
 export PATH="$GO_USER:$PATH"
+export PATH="$NVIM:$PATH"
 # ======================================================================================
 
 # Pyenv init - virtualenv are handled by virtualenv and virtualenvwrapper intentionally
@@ -154,7 +155,11 @@ eval "$(pyenv init -)"
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=$(which python)
 export VIRTUALENVWRAPPER_VIRTUALENV=$(which virtualenv)
-source $(which virtualenvwrapper.sh)
+
+if [[ -z "${_VENVWRAPPER_LOADED:-}" ]]; then
+  export _VENVWRAPPER_LOADED=1
+  source "$(which virtualenvwrapper.sh)"
+fi
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -169,6 +174,9 @@ source $(which virtualenvwrapper.sh)
 # alias ohmybash="mate ~/.oh-my-bash"
 . "$HOME/.cargo/env"
 
+# Load aliases
+[[ -f ~/.bash_aliases ]] && source ~/.bash_aliases
+
 # Load additional local aliases (ignored from Git)
 [[ -f ~/.bash_local ]] && source ~/.bash_local
 
@@ -182,7 +190,7 @@ complete -o default -F __start_kubectl k
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/home/foliwa/.rd/bin:$PATH"
+export PATH="$HOME/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
