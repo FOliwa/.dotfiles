@@ -2,11 +2,11 @@
 
 The Symlink Approach is about keeping your dotfiles in a dedicated directory (e.g., ~/dotfiles/) and creating symbolic links (symlinks) from there to your home directory. This way, your actual config files stay version-controlled while still being in the expected locations.
 
-# Way of working
+## Use `stow`
 
 I will use `stow` tool. This is simple tool to mange symlinks for dotfiles.
 
-## Setup
+### Setup
 
 1. Install `stow`
 
@@ -84,25 +84,7 @@ cd ~/dotfiles
 stow nvim
 ```
 
-# Pros - Cons
-
-## CONS
-
-- Requires moving file once
-- Need to manually `stow` configs on new systems
-
-## PROS
-
-Things not gonna happened "AutoMagically" out of the box in this approach and some manual action are required but
-except of that the great things are:
-
-- `stow` will automatically manges symlinks for you
-- Your files are organized in categories
-- This is reversible - you can remove symlinks without deleting files
-
-# Notes
-
-## About Bash
+### About Bash
 
 As I have some machine specific configs and aliases - I dont want to share it in all machines as there thos aliases
 could not work or be broke. To handle machine specific configs for bash I decided to add file `.bash_local`. Put there
@@ -112,3 +94,14 @@ machine specific settings that should not be part of Git repository.
 # Load additional local aliases (ignored from Git)
 [[ -f ~/.bash_local ]] && source ~/.bash_local
 ```
+
+### Tools
+
+#### Starship
+
+```bash
+curl -sS https://starship.rs/install.sh | sh
+```
+
+- fancy and highly customizable prompt
+- works better than pure bash prompt

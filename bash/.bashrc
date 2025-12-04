@@ -148,6 +148,9 @@ export PATH="$GO_USER:$PATH"
 export PATH="$NVIM:$PATH"
 # ======================================================================================
 
+# Pyenv init
+eval "$(starship init bash)"
+
 # Pyenv init - virtualenv are handled by virtualenv and virtualenvwrapper intentionally
 eval "$(pyenv init -)"
 
