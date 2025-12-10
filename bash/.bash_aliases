@@ -14,7 +14,7 @@ alias k="kubectl"
 # Git related
 alias lg="git log --graph --oneline"
 alias lgm="git log --graph --oneline  master.."
-alias gstat="git status"
+alias gst="git status"
 
 # TMUX
 # INFO: This is a template for your reuse:

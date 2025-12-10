@@ -67,7 +67,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet &
 
 # My custom netstat - align name of the interface
-exec --no-startup-id bash -c "pkill -f net.sh; ~/.config/i3/net.sh >/tmp/net.log 2>&1 &"
+exec --no-startup-id bash -c "sleep 1; pkill -x net.sh; setsid ~/.config/i3/net.sh >/tmp/net.log 2>&1"
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status

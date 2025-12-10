@@ -1,0 +1,17 @@
+set show-all-if-ambiguous on
+set menu-complete-display-prefix on
+set completion-ignore-case on
+
+# Tab = przechodzenie po kolejnych dopasowaniach
+"\C-i": menu-complete
+
+# Shift+Tab (jeśli terminal wysyła \e[Z) = wstecz
+"\e[Z": menu-complete-backward
+
+# Strzałka w górę / dół: historia po prefiksie
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# NOTE:
+# If you change something and you want to reload use:
+# bind -f ~/.inputrc 

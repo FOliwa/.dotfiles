@@ -14,6 +14,7 @@ order += "memory"
 order += "wireless _first_"
 #order += "battery all"
 #order += "volume master"
+order += "time"
 
 wireless _first_ {
     format_up = "  %essid (%quality) "
@@ -45,4 +46,9 @@ volume master {
 read_file netload {
     path = "/tmp/netload"
 }
+
+time {
+    format = " %H:%M "
+}
+
 

@@ -97,11 +97,7 @@ machine specific settings that should not be part of Git repository.
 
 ### Tools
 
-#### Starship
-
-```bash
-curl -sS https://starship.rs/install.sh | sh
-```
-
-- fancy and highly customizable prompt
-- works better than pure bash prompt
+- homebrew
+- starship
+- i3
+  - nitrogen
