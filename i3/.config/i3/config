@@ -66,6 +66,9 @@ exec --no-startup-id nm-applet
 # Add Bluethouth devices applet
 exec --no-startup-id blueman-applet &
 
+# Audio aplet
+exec --no-startup-id pasystray
+
 # My custom netstat - align name of the interface
 exec --no-startup-id bash -c "sleep 1; pkill -x net.sh; setsid ~/.config/i3/net.sh >/tmp/net.log 2>&1"
 

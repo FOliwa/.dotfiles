@@ -13,7 +13,7 @@ order += "cpu_usage"
 order += "memory"
 order += "wireless _first_"
 #order += "battery all"
-#order += "volume master"
+order += "volume master"
 order += "time"
 
 wireless _first_ {
@@ -37,7 +37,7 @@ battery all {
 }
 
 volume master {
-    format = " %volume"
+    format = "  %volume "
     device = "default"
     mixer = "Master"
     mixer_idx = 0
@@ -50,5 +50,4 @@ read_file netload {
 time {
     format = " %H:%M "
 }
-
 
