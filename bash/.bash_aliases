@@ -24,3 +24,9 @@ alias gst="git status"
 # TMUX
 # NOTE: This is a template for your reuse:
 #alias mluti_tmux='tmux send $_RUN_JSON_SERVER C-m\; splitw -p 50 -v \; send $_RUN_CONFIGS C-m\; splitw -fh \;  send $_RUN_FRONT C-m\; splitw -fv \; send $_RUN_NGINX C-m\; send strt_backend C-m\;'
+
+# Coloring
+alias ls='ls --color=auto'
+alias ll='ls -lh --color=auto'
+alias la='ls -lha --color=auto'
+alias grep='grep --color=auto'
