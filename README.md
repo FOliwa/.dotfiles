@@ -97,7 +97,13 @@ machine specific settings that should not be part of Git repository.
 
 ### Tools
 
-- homebrew
-- starship
+- homebrew (pakiety menager)
+
+- kitty (terminal emulator)
+- starship (kolorowy prompt i ikonki)
+- tmux (jak sie widok rozpada to znaczy stary tmux)
+
 - i3
-  - nitrogen
+  - nitrogen (tapety)
+  - blueman (bluetooth)
+  - pavuctl (volume)
