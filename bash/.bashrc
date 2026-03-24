@@ -104,6 +104,11 @@ if command -v pyenv >/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+# fnm node and npm manager
+if command -v fnm >/dev/null 2>&1; then
+  eval "$(fnm env)"
+fi
+
 # ----------------------------------------------------------
 # Bash completion tuning
 # ----------------------------------------------------------

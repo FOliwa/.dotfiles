@@ -12,7 +12,7 @@ order += "read_file netload"
 order += "cpu_usage"
 order += "memory"
 order += "wireless _first_"
-#order += "battery all"
+order += "battery all"
 order += "volume master"
 order += "time"
 
