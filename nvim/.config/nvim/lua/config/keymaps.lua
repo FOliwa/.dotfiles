@@ -6,3 +6,8 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
+
+-- ~/.config/nvim/lua/config/keymaps.lua
+vim.keymap.set({ "n", "t" }, "<C-/>", function()
+	Snacks.terminal()
+end, { desc = "Toggle Terminal" })
