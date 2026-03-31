@@ -17,7 +17,12 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	spec = {
 		{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
+
+		-- EXTRAS IMPORT --
 		{ import = "lazyvim.plugins.extras.lang.docker" },
+		{ import = "lazyvim.plugins.extras.lang.go" },
+
+		-- PLUGINS DEFINITION --
 		{ import = "plugins" },
 	},
 	defaults = {
@@ -26,7 +31,7 @@ require("lazy").setup({
 	},
 	checker = {
 		enabled = true, -- check for plugin updates periodically
-		notify = false, -- notify on update
+		notify = true, -- notify on update
 	}, -- automatically check for plugin updates
 	performance = {
 		rtp = {

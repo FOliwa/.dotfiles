@@ -10,5 +10,6 @@ return {
 		table.insert(opts.ensure_installed, "html-lsp")
 		table.insert(opts.ensure_installed, "lua-language-server")
 		table.insert(opts.ensure_installed, "pyright")
+		table.insert(opts.ensure_installed, "gopls")
 	end,
 }
