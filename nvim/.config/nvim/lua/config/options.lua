@@ -1,71 +1,98 @@
 -- Options are automatically loaded before lazy.nvim startup
--- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
--- Add any additional options here
+-- Default options:
+-- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+
 vim.cmd("let g:netrw_liststyle = 3")
 
 vim.g.lazyvim_blink_main = true
 
--- turn on termguicolors for tokyonight colorscheme to work
--- (have to use iterm2 or any other true color terminal)
-vim.opt.termguicolors = true
-vim.opt.background = "dark" -- colorschemes that can be light or dark will be made dark
-vim.opt.signcolumn = "yes" -- show sign column so that text doesn't shift
-
--- Enable spell checking
-vim.opt.spell = true
-vim.opt.spelllang = { "en", "pl" }
-
--- ---------------------------------------------------------------------
--- Colors like in kitty - Optional added for consistency
--- ---------------------------------------------------------------------
-vim.g.terminal_color_0 = "#111412"
-vim.g.terminal_color_8 = "#232825"
-vim.g.terminal_color_1 = "#e06c75"
-vim.g.terminal_color_9 = "#ff7b86"
-vim.g.terminal_color_2 = "#98c379"
-vim.g.terminal_color_10 = "#b6e3a0"
-vim.g.terminal_color_3 = "#d19a66"
-vim.g.terminal_color_11 = "#ffd27e"
-vim.g.terminal_color_4 = "#61afef"
-vim.g.terminal_color_12 = "#7dc3ff"
-vim.g.terminal_color_5 = "#c678dd"
-vim.g.terminal_color_13 = "#e6b5ff"
-vim.g.terminal_color_6 = "#56b6c2"
-vim.g.terminal_color_14 = "#7fe7f3"
-vim.g.terminal_color_7 = "#dce5d7"
-vim.g.terminal_color_15 = "#ffffff"
-
 local opt = vim.opt
 
-opt.relativenumber = true
+-- ============================================================================
+-- UI
+-- ============================================================================
+
+opt.termguicolors = true
+opt.background = "dark"
+opt.signcolumn = "yes"
+
 opt.number = true
-
--- tabs & indentation
-opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
-opt.shiftwidth = 2 -- 2 spaces for indent width
-opt.expandtab = true -- expand tab to spaces
-opt.autoindent = true -- copy indent from current line when starting new one
-
-opt.wrap = false
-
--- search settings
-opt.ignorecase = true -- ignore case when searching
-opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
-
+opt.relativenumber = true
 opt.cursorline = true
 
--- backspace
-opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
+opt.scrolloff = 8
+opt.sidescrolloff = 8
 
--- split windows
-opt.splitright = true -- split vertical window to the right
-opt.splitbelow = true -- split horizontal window to the bottom
+opt.splitright = true
+opt.splitbelow = true
 
--- turn off swapfile
-opt.swapfile = false
-
--- Display where 120 characters is
+opt.wrap = false
 opt.colorcolumn = "120"
 
--- This will automatically brake my line if is to long
+-- ============================================================================
+-- Performance
+-- ============================================================================
+
+opt.updatetime = 250
+opt.timeoutlen = 300
+opt.redrawtime = 10000
+
+opt.swapfile = false
+
+-- ============================================================================
+-- Indentation
+-- ============================================================================
+
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+opt.autoindent = true
+
+-- ============================================================================
+-- Search
+-- ============================================================================
+
+opt.ignorecase = true
+opt.smartcase = true
+
+-- ============================================================================
+-- Editing
+-- ============================================================================
+
+opt.backspace = "indent,eol,start"
 opt.textwidth = 120
+
+-- ============================================================================
+-- Spell checking
+-- Włączamy tylko dla plików tekstowych
+-- ============================================================================
+
+opt.spell = false
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "markdown", "text", "gitcommit" },
+	callback = function()
+		vim.opt_local.spell = true
+		vim.opt_local.spelllang = { "en", "pl" }
+	end,
+})
+
+-- ============================================================================
+-- Large files optimization
+-- ============================================================================
+
+vim.api.nvim_create_autocmd("BufReadPre", {
+	callback = function(args)
+		local ok, stat = pcall(vim.loop.fs_stat, args.file)
+
+		if ok and stat and stat.size > 500 * 1024 then
+			vim.opt_local.spell = false
+			vim.opt_local.relativenumber = false
+			vim.opt_local.cursorline = false
+			vim.opt_local.colorcolumn = ""
+			vim.opt_local.foldmethod = "manual"
+
+			pcall(vim.cmd, "TSBufDisable highlight")
+		end
+	end,
+})
