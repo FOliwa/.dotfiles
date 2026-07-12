@@ -49,8 +49,8 @@ mediaGofer() {
     -P \
     -F '#{pane_id}')$()
 
-  #tmux send-keys -t "$main" "nvim ." Enter
-  #tmux send-keys -t "$right" "codex" Enter
+  tmux send-keys -t "$main" "nvim ." Enter
+  tmux send-keys -t "$right" "codex" Enter
 
   tmux select-pane -t "$main"
   tmux attach-session -t "$session"
