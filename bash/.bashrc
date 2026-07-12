@@ -62,8 +62,11 @@ export NVM_DIR="$HOME/.nvm"
 # kubectl
 # ======================================================================
 # kubectl + alias "k"
-source <(kubectl completion bash)
-complete -o default -F __start_kubectl k
+# fnm node and npm manager
+if command -v kubectl >/dev/null 2>&1; then
+  source <(kubectl completion bash)
+  complete -o default -F __start_kubectl k
+fi
 
 # ======================================================================
 # FZF

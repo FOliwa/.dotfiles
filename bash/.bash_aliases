@@ -30,3 +30,28 @@ alias ls='ls --color=auto'
 alias ll='ls -lh --color=auto'
 alias la='ls -lha --color=auto'
 alias grep='grep --color=auto'
+
+mediaGofer() {
+  local session="mediaGofer"
+  local dir="$HOME/Workspace/MediaGofer/"
+  local main
+  local right
+
+  tmux kill-session -t "$session" 2>/dev/null
+
+  main=$(tmux new-session -d -s "$session" -c "$dir" -P -F '#{pane_id}')
+
+  right=$(tmux split-window \
+    -h \
+    -l 20 \
+    -t "$main" \
+    -c "$dir" \
+    -P \
+    -F '#{pane_id}')$()
+
+  #tmux send-keys -t "$main" "nvim ." Enter
+  #tmux send-keys -t "$right" "codex" Enter
+
+  tmux select-pane -t "$main"
+  tmux attach-session -t "$session"
+}
